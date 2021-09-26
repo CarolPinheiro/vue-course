@@ -31,15 +31,16 @@
       </section>
       <section v-if="winner">
         <h3>Game Over!</h3>
-        <h2 v-if="winnner === 'monster'">You lost!</h2>
+        <h2 v-if="winner === 'monster'">You lost!</h2>
         <h2 v-else-if="winner === 'player'">You won!</h2>
         <h2 v-else>It's a draw!</h2>
+        <button @click='newGame'>Start a new Game!</button>
       </section>
-      <section id="controls" v-if="!winner">
+      <section id="controls" v-else>
         <button @click='attackMonster'>ATTACK</button>
         <button :disabled='specialAttackController' @click='specialAttackMonster'>SPECIAL ATTACK</button>
         <button @click='healPlayer'>HEAL</button>
-        <button>SURRENDER</button>
+        <button @click='surrender'>SURRENDER</button>
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
