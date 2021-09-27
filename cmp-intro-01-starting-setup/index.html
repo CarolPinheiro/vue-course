@@ -18,14 +18,7 @@
     </header>
     <section id="app">
       <ul>
-        <li v-for="friend in friends" :key="id">
-          <h2>{{friend.name}}</h2>
-          <button>Show Details</button>
-          <ul>
-            <li><strong>Phone:</strong> {{friend.phone}}</li>
-            <li><strong>Email:</strong> {{friend.email}}</li>
-          </ul>
-        </li>
+      <friend-component></friend-component>
         
       </ul>
     </section>
