@@ -1,8 +1,8 @@
 const app = Vue.createApp({
   data() {
     return {
-      currentUserInput: '',
-      message: 'Vue is great!',
+      currentUserInput: "",
+      message: "Vue is great!",
     };
   },
   methods: {
@@ -14,36 +14,32 @@ const app = Vue.createApp({
     },
   },
   beforeCreate() {
-    console.log('beforeCreate')
+    console.log("beforeCreate");
   },
   created() {
-    console.log('created')
+    console.log("created");
   },
   beforeMount() {
-    console.log('beforeMount')
-    
+    console.log("beforeMount");
   },
   mounted() {
-    console.log('mounted')
-    
+    console.log("mounted");
   },
   beforeUpdate() {
-    console.log('beforeUpdate')
-    
+    console.log("beforeUpdate");
   },
   updated() {
-    console.log('updated')
-    
+    console.log("updated");
   },
   beforeUnmount() {
-    console.log('beforeUnmount')
+    console.log("beforeUnmount");
   },
   unmounted() {
-    console.log('unmount')
+    console.log("unmount");
   },
 });
 
-app.mount('#app');
+app.mount("#app");
 
 const app2 = Vue.createApp({
   template: `
@@ -51,9 +47,9 @@ const app2 = Vue.createApp({
   `,
   data() {
     return {
-      favoriteMeal: 'Pizza'
-    }
+      favoriteMeal: "Pizza",
+    };
   },
-})
+});
 
-app2.mount('#app2');
+app2.mount("#app2");
