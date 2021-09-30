@@ -1,8 +1,9 @@
 <template>
   <li>
-    <h2>{{ name }} {{ favoriteFriend === "0" ? "" : "(Favorite)" }}</h2>
+    <h2>{{ name }} {{ isFavorite === false ? "" : "(Favorite)" }}</h2>
     <button @click="toggleButtons">Show Details</button>
     <button @click="toggleFavorite">Toggle Favorite</button>
+    <button @click="$emit('delete', id)">Delete Friend</button>
     <ul v-if="toggleButton">
       <li><strong>Phone:</strong> {{ phoneNumber }}</li>
       <li><strong>E-mail:</strong> {{ emailAddress }}</li>
@@ -14,6 +15,10 @@
 export default {
   // props: ["name", "phoneNumber", "emailAddress", "isFavorite"],
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -27,24 +32,15 @@ export default {
       required: true,
     },
     isFavorite: {
-      type: String,
+      type: Boolean,
       required: false,
-      default: "0",
-      validator(value) {
-        return value === "1" || value === "0";
-      },
+      default: false,
     },
   },
+  emits: ["toggle-favorite", 'delete'],
   data() {
     return {
-      friend: {
-        id: "manuel",
-        name: "Manuel Lorenz",
-        phone: "01234 5678 991",
-        email: "manuel@localhost.com",
-      },
       toggleButton: false,
-      favoriteFriend: this.isFavorite,
     };
   },
   methods: {
@@ -52,9 +48,7 @@ export default {
       this.toggleButton = !this.toggleButton;
     },
     toggleFavorite() {
-      this.favoriteFriend === "0"
-        ? (this.favoriteFriend = "1")
-        : (this.favoriteFriend = "0");
+      this.$emit("toggle-favorite", this.id);
     },
   },
 };
