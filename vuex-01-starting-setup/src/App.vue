@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     addOne() {
-      this.$store.commit({ type: 'increase', value: 2 });
+      this.$store.dispatch({ type: 'increase', value: 2 });
     }
   }
 };
